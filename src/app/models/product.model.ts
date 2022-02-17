@@ -12,6 +12,7 @@ export interface Product {
   category: Category;
 }
 
+//DTO Data Transfer Object
 export interface CreateProductDTO extends Omit<Product, 'id' | 'category'> {
   categoryId: number;
 }
