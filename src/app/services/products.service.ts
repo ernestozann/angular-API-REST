@@ -5,7 +5,7 @@ import { catchError, map, retry } from 'rxjs/operators'
 import { Product, CreateProductDTO, UpdateProductDTO } from './../models/product.model';
 
 import { environment } from 'src/environments/environment';
-import { throwError } from 'rxjs';
+import { throwError, zip } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +35,13 @@ export class ProductsService {
         }
       }))
     );
+  }
+
+  fetchReadAndUpdate(id: string, dto: UpdateProductDTO) {
+    return zip(
+      this.getProduct(id),
+      this.update(id, dto)
+    )
   }
 
   getProduct(id: string) {
