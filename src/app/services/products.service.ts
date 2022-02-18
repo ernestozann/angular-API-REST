@@ -8,7 +8,7 @@ import { Product, CreateProductDTO, UpdateProductDTO } from './../models/product
   providedIn: 'root'
 })
 export class ProductsService {
-  private apiURL: string = 'https://young-sands-07814.herokuapp.com/api/products'
+  private apiURL: string = '/api/products'
 
   constructor(
     private http: HttpClient
