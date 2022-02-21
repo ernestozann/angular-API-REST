@@ -9,8 +9,9 @@ import { UsersService } from './services/users.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  imgParent = '';
-  showImg = true;
+  imgParent: string = '';
+  showImg: boolean = true;
+  token: string = ''
 
   constructor(
     private authService: AuthService,
@@ -33,13 +34,6 @@ export class AppComponent {
     })
     .subscribe(rta => {
       console.log(rta);
-    })
-  }
-
-  login() {
-    this.authService.login('eru@eru.com','1346')
-    .subscribe(rta => {
-      console.log(rta.access_token);
     })
   }
 }
